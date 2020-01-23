@@ -13,6 +13,16 @@ class mytableCell : UITableViewCell {
     @IBOutlet weak var sw1: UISwitch!
     @IBOutlet weak var lblsw: UILabel!
     
+    @IBAction func btnSW(_ sender: Any) {
+        if sw1.isOn {
+            lblsw.text = "ON"
+        }
+        else {
+            lblsw.text = "OFF"
+        }
+    }
+    
+    
 }
 
 
@@ -28,12 +38,7 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! mytableCell
         //cell.textLabel!.text = String(indexPath.row)
-        if cell.sw1.isOn {
-            cell.lblsw.text = "ON"
-        }
-        else {
-            cell.lblsw.text = "OFF"
-        }
+        
         return cell
     }
     
